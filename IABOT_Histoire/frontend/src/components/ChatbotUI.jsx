@@ -22,8 +22,9 @@ export default function Chatbot() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
       <div className="flex flex-col items-center justify-center h-full">
-        <h1 className="text-3xl font-semibold text-center mb-6">Chatbot Historique</h1>
-        <form className="w-full" onSubmit={handleSubmit}>
+        <h1 className="text-3xl font-semibold text-center mb-6">Chatbot Historique 💩🤓</h1>
+        <form className="w-full gap-2" onSubmit={handleSubmit} >
+            <div className="espace">
           <input
             type="text"
             value={query}
@@ -38,6 +39,7 @@ export default function Chatbot() {
           >
             {loading ? "Recherche..." : "Envoyer"}
           </button>
+            </div>
         </form>
         {response && (
           <div className="mt-6 p-4 bg-gray-700 shadow-md rounded-lg">
