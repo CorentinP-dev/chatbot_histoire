@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
+
+from conversations import get_or_seed_conversation
 from rag import generate_rag_response
 
 # Charger les variables d'environnement
@@ -24,6 +26,7 @@ app.add_middleware(
 # Modèle de requête pour l'API
 class QueryModel(BaseModel):
     query: str
+    conversation_id: str
 
 
 # Endpoint de vérification de l'API
@@ -35,7 +38,9 @@ def health_check():
 # Endpoint pour interroger le RAG
 @app.post("/query")
 def query_rag(request: QueryModel):
-    response = generate_rag_response(request.query)
+    conversation_id = request.conversation_id
+    conversation = get_or_seed_conversation(conversation_id)
+    response = generate_rag_response(conversation["messages"], request.query)
     return {"response": response}
 
 

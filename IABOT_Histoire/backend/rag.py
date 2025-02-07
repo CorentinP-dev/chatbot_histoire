@@ -28,7 +28,7 @@ def get_chroma_collection():
 vectorstore = get_chroma_collection()
 
 
-def generate_rag_response(query, top_k=3):
+def generate_rag_response(messages, query, top_k=3):
     print("\n🔍 Recherche des documents pertinents...")
     results = vectorstore.similarity_search(query, k=top_k)
 
@@ -43,7 +43,6 @@ def generate_rag_response(query, top_k=3):
     # Construire le prompt pour GPT-4
     prompt = f"""
     Tu es un expert en histoire. Réponds à la question suivante en utilisant le contexte fourni et tes connaissances.
-    Si une information provient d'une source, indique son titre et son URL.
 
     ### CONTEXTE :
     {context}
@@ -51,16 +50,22 @@ def generate_rag_response(query, top_k=3):
     ### QUESTION :
     {query}
 
-    Indique clairement les sources utilisées dans ta réponse.
+    À la fin de ta réponse, affiche les sources sous ce format :
+
+    ---
+    **Sources :**
+    - [Nom de la source](lien)
+    - [Autre source](lien)
+    ---
+
     """
 
     print("\n📝 Envoi de la requête à GPT-4...")
+
+    messages = [*messages, {"role": "user", "content": prompt}]
     response = openai_client.chat.completions.create(
         model="gpt-4",
-        messages=[
-            {"role": "system", "content": "Tu es un assistant spécialisé en histoire."},
-            {"role": "user", "content": prompt}
-        ],
+        messages=messages,
         max_tokens=500
     )
 

@@ -19,6 +19,11 @@ a {
   text-decoration: inherit;
 }
 
+p{
+ max-width: 600px;
+}
+
+
 a:hover {
   color: #535bf2;
 }
@@ -41,10 +46,22 @@ h1 {
 
 /* Conteneur de l'input et du bouton */
 .espace {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #202020;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ton-oncle {
   display: flex;
   align-items: center;
   gap: 15px; /* Espace entre l'input et le bouton */
-
 }
 
 /* Input */
@@ -52,7 +69,7 @@ input {
   flex: 1;
   background-color: #374151;
   padding: 0.8em 1.2em;
-  border: 1px solid #bde5c8;
+  border: 1px solid #374151;
   font-size: 1rem;
   border-radius: 8px;
   color: white;
@@ -73,12 +90,16 @@ button {
   transition: 0.3s ease;
   background-color: #2563eb; /* Bleu */
   color: #fff;
-  max-width: 123px;
+  max-width: 140px;
   width: 100%;
 }
 
 button:hover {
   background-color: #1d4ed8;
+}
+
+.chat-container {
+  padding-bottom: 150px;
 }
 
 /* Make sure the layout is responsive */
