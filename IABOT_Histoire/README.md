@@ -44,17 +44,18 @@ Ce projet est un **chatbot intelligent** basé sur **GPT-4** et un système de *
 git clone https://github.com/CorentinP-dev/chatbot_histoire
 cd chatbot_histoire
 ```
-
-### **2️⃣ Installation du Backend**
-
-```bash
-pip install -r requirements.txt
-```
-
+Dans le dossier IABOT_Histoire
 - Créer un fichier `.env` et y ajouter :
   ```
   OPENAI_API_KEY=your_openai_api_key
   ```
+
+
+### **2️⃣ Installation du Backend (aller dans le fichier backend)**
+
+```bash
+pip install -r requirements.txt
+```
 
 ### **3️⃣ Lancer l’API**
 
@@ -66,7 +67,9 @@ L’API sera disponible sur `http://127.0.0.1:8000`
 
 ---
 
-### **4️⃣ Installation du Frontend**
+### **4️⃣ Installation du Frontend (aller dans le fichier frontend)**
+
+Créer un fichier `.env.local` et y ajouter
 
 ```bash
 cd frontend
