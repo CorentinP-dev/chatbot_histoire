@@ -109,5 +109,5 @@ Accédez au chatbot sur `http://localhost:5173/`
 
 🚀 **Contribuez & Améliorez le projet !** 🎯
 
-Tous droits réservés à Corentin PELLETIER
+Tous droits réservés à Corentin PELLETIER et V
 
