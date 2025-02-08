@@ -44,7 +44,7 @@ Ce projet est un **chatbot intelligent** basé sur **GPT-4** et un système de *
 git clone https://github.com/CorentinP-dev/chatbot_histoire
 cd chatbot_histoire
 ```
-Dans le dossier IABOT_Histoire
+#### Dans le dossier IABOT_Histoire
 - Créer un fichier `.env` et y ajouter :
   ```
   OPENAI_API_KEY=your_openai_api_key
